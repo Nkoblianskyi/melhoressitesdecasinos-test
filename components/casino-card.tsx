@@ -42,11 +42,10 @@ export function CasinoCard({ casino, onClick }: CasinoCardProps) {
 
   return (
     <Card
-      className={`casino-card cursor-pointer transition-all duration-300 relative overflow-hidden min-h-[120px] md:min-h-[140px] lg:min-h-[160px] ${
-        casino.isTopChoice
-          ? "ring-2 ring-amber-400 shadow-lg shadow-amber-400/20 border-amber-400"
-          : "hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10"
-      }`}
+      className={`casino-card cursor-pointer transition-all duration-300 relative overflow-hidden min-h-[120px] md:min-h-[140px] lg:min-h-[160px] ${casino.isTopChoice
+        ? "ring-2 ring-amber-400 shadow-lg shadow-amber-400/20 border-amber-400"
+        : "hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10"
+        }`}
       onClick={() => onClick(casino.url)}
       style={{
         backgroundColor: casino.isTopChoice ? "rgba(20, 20, 30, 0.95)" : "rgba(25, 25, 35, 0.92)",
@@ -89,41 +88,44 @@ export function CasinoCard({ casino, onClick }: CasinoCardProps) {
                 <img
                   src={casino.logo || "/placeholder.svg"}
                   alt={`${casino.name} logo`}
-                  className="h-12 object-contain max-w-[120px] w-auto"
+                  className="h-24 object-contain max-w-[120px] w-auto"
+                  width={24}
+                  height={24}
                 />
               </div>
-              <div className="flex flex-col items-center justify-center gap-1 mt-2">
-                <span className="text-foreground font-semibold text-sm">{casino.rating.toFixed(1)}</span>
-                <div className="flex items-center">{renderStars(casino.rating, "h-4 w-4")}</div>
-              </div>
+
             </div>
             <div className="text-center flex-1 ml-6">
               <div className="flex items-center justify-center gap-1 text-red-600 mb-2">
                 <span className="text-sm font-medium">Bónus de Boas-Vindas</span>
               </div>
-              <div className="text-slate-50 font-bold text-base leading-tight font-playfair p-2 rounded">
+              <div className="text-slate-50 font-bold text-2xl leading-tight font-playfair p-2 rounded">
                 {casino.bonus}
               </div>
-              <div className="mt-3 text-center">
-                <div className="flex flex-col items-center justify-center gap-1 mb-1">
-                  <span className="text-foreground font-semibold text-sm">{casino.rating.toFixed(1)}</span>
-                  <div className="flex items-center gap-1">{renderStars(casino.rating, "h-3 w-3")}</div>
-                </div>
-                <div className="text-xs text-muted-foreground">{casino.reviews.toLocaleString()} avaliações</div>
-              </div>
+
             </div>
           </div>
-          <div className="text-center">
-            <Button
-              className="font-semibold px-4 py-2 text-xs w-full max-w-xs relative z-10 shadow-lg transition-all duration-200 bg-green-600 hover:bg-green-700 text-white"
-              onClick={(e) => {
-                e.stopPropagation()
-                onClick(casino.url)
-              }}
-            >
-              JOGAR AGORA
-            </Button>
-            <p className="text-xs text-muted-foreground mt-1">18+ Jogo Responsável</p>
+
+          <div className="flex items-center justify-around">
+            <div className="flex flex-col items-center justify-center gap-1 mt-2">
+              <div className="flex flex-col items-center justify-center gap-1 mb-1">
+                <span className="text-foreground font-semibold text-sm">{casino.rating.toFixed(1)}</span>
+                <div className="flex items-center gap-1">{renderStars(casino.rating, "h-3 w-3")}</div>
+              </div>
+              <div className="text-xs text-muted-foreground">{casino.reviews.toLocaleString()} avaliações</div>
+            </div>
+            <div className="flex flex-col items-center">
+              <Button
+                className="font-semibold px-4 py-2 text-xs w-full max-w-xs relative z-10 shadow-lg transition-all duration-200 bg-green-600 hover:bg-green-700 text-white"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  onClick(casino.url)
+                }}
+              >
+                JOGAR AGORA
+              </Button>
+              <p className="text-xs text-muted-foreground mt-1">18+ Jogo Responsável</p>
+            </div>
           </div>
         </div>
 
