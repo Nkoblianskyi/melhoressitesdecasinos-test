@@ -32,7 +32,6 @@ export function CookieBanner() {
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div className="flex items-start space-x-3">
-            <Cookie className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
             <div>
               <h4 className="text-white font-semibold mb-1">Utilizamos Cookies</h4>
               <p className="text-gray-300 text-sm">
