@@ -36,7 +36,7 @@ export function Hero() {
             <div className="text-center">
               <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold font-playfair leading-tight">
                 <span className="text-red-600">Os Melhores </span>
-                <span className="text-green-600">Casinos Online </span>
+                <span className="text-green-600">Casinos </span>
                 <span className="text-red-600">de Portugal</span>
               </h1>
 
